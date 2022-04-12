@@ -5,15 +5,17 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserhomeComponent } from './userhome/userhome.component';
+
 
 
 const routes: Routes = [{'path': 'login', component: LoginComponent},
 {'path': 'register', component: RegisterComponent},
-{'path': 'home', component: HomeComponent},
+{'path': '', component: HomeComponent},
 {'path': 'header', component: HeaderComponent},
 {'path': 'footer', component: FooterComponent},
-{'path': 'dashboard', component:DashboardComponent}];
+{'path': 'userhome', component: UserhomeComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
