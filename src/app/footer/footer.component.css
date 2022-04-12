@@ -1,0 +1,13 @@
+.modal-header--sticky {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: 1055;
+  }
+  
+  .modal-footer--sticky {
+    position: sticky;
+    bottom: 0;
+    background-color: inherit;
+    z-index: 1055;
+  }
