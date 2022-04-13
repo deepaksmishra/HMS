@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +21,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ActivateGuard } from './activate.guard';
+import { UserService } from './user.service';
+import { Approutes } from './routing';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -41,6 +44,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(Approutes),
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -53,7 +57,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [ActivateGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

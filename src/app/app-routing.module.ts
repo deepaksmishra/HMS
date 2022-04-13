@@ -5,9 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { UserhomeComponent } from './userhome/userhome.component';
+import { UserhomeComponent  } from './userhome/userhome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
 
 
 const routes: Routes = [{'path': 'login', component: LoginComponent},
@@ -16,8 +15,10 @@ const routes: Routes = [{'path': 'login', component: LoginComponent},
 {'path': 'header', component: HeaderComponent},
 {'path': 'footer', component: FooterComponent},
 {'path': 'userhome', component: UserhomeComponent},
-{'path': '**', component: PageNotFoundComponent},
+//{'path': '**', component: PageNotFoundComponent}, //404 page ** removed
 //{'path':'adduser', loadChildren: 'app/dashboardfunctions/adduser/adduser.module#AdduserModule'},
+{'path':'admin',loadChildren:()=>import('./adduser/adduser.module').then(module=>module.AdduserModule)},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
