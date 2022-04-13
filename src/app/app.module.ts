@@ -21,6 +21,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { UserhomeComponent } from './userhome/userhome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { UserhomeComponent } from './userhome/userhome.component';
     SidebarComponent,
     DashboardComponent,
     UserhomeComponent,
+    PageNotFoundComponent,
     
   ],
   imports: [

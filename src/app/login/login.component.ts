@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    console.log("Login Component Loaded");
+  }
 
   ngOnInit(): void {
   }
-
+save()
+{ 
+  sessionStorage.setItem('admin@gmail.com','admin');
+}
 }
