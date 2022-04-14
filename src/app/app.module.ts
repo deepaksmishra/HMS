@@ -25,6 +25,11 @@ import { ActivateGuard } from './activate.guard';
 import { UserService } from './user.service';
 import { Approutes } from './routing';
 import { RouterModule } from '@angular/router';
+import { TopHeaderComponent } from './home/top-header/top-header.component';
+import { TopBodyComponent } from './home/top-body/top-body.component';
+import { AboutusPageComponent } from './home/aboutus-page/aboutus-page.component';
+import { ContactusPageComponent } from './home/contactus-page/contactus-page.component';
+
 
 
 
@@ -40,7 +45,10 @@ import { RouterModule } from '@angular/router';
     DashboardComponent,
     UserhomeComponent,
     PageNotFoundComponent,
-    
+    TopHeaderComponent,
+    TopBodyComponent,
+    AboutusPageComponent,
+    ContactusPageComponent,
   ],
   imports: [
     BrowserModule,

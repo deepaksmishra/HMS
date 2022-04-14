@@ -1,16 +1,11 @@
-.modal-header--sticky {
-    position: sticky;
-    top: 0;
-    background-color: inherit;
-    z-index: 1055;
-  }
-  
-  .modal-footer--sticky {
-    position: sticky;
-    bottom: 0;
-    background-color: inherit;
-    z-index: 1055;
-  }
-  h5{ 
-    color: aliceblue;
-  }
+body,html {
+    height:100%;
+}
+.container {
+    min-height:20%;
+}
+.footer {
+    
+    height:40px;
+    margin-top:-40px;
+}

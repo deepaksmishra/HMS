@@ -1,79 +1,24 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="javascript:void(0)">HMS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+<!--navigation starts here-->
+<div class="container-fluid bg-light position-relative shadow">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+        <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+            <i class="flaticon-043-teddy-bear"></i>
+            <span class="text-primary">LWA</span>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/dashboard">Contact</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/dashboard">About</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/dashboard">Locate Us</a>
-                </li>
-            </ul>
-
-            <form class="d-flex">
-
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Login
-                </button>
-                &nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    Register
-                  </button>
-                </form>
-
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav font-weight-bold mx-auto py-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="class.html" class="nav-item nav-link">Contact</a>
+                <a href="team.html" class="nav-item nav-link">Company</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-primary px-4">Login</a> &nbsp;&nbsp;&NonBreakingSpace;&nbsp;&nbsp;
+            <a href="" class="btn btn-primary px-4">Enroll Now</a>
         </div>
-    </div>
-</nav>
-
-
-
-<!--login-->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header modal-header--sticky">
-                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="login">
-                <app-login></app-login>
-                <p style="height: 10vh;"></p>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-<!--Register-->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header modal-header--sticky">
-                <h5 class="modal-title" id="exampleModalLabel2">Register</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="register">
-                
-                <p style="height: 10vh;"></p>
-
-            </div>
-
-        </div>
-    </div>
-
-  
+    </nav>
+</div>
+<!-- Navigation ends here -->
