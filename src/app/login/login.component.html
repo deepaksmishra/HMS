@@ -1,28 +1,43 @@
 
 <app-header></app-header>
-<br>&nbsp; &nbsp; &nbsp;
-<div class="container">
+<mat-card>
+    <mat-card-content>
+      <div class="header">
+        <P>Sign Into Your Account </P>
+      </div>
 
-  <form action="index.html">
-      <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" >
-      </div>
-      <br>
-      <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-      </div>
-      <br>
-      <div class="form-group form-check">
-          <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" name="remember"> Remember me
-          </label>
-      </div>
-      <button type="submit" class="btn btn-primary" (click)="save()">Submit</button>
 
-      <p style="text-align: center;">Need an Account ?<a routerLink="/register">Register</a></p>
-  </form>
-</div>
+<form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+
+      <!--Email-->
+    <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email"  matInput placeholder="Enter email address" required  />
+            <mat-error *ngIf="!loginForm.controls['email'].valid"> Email is required</mat-error>
+        </mat-form-field>
+    </div>
+
+        <!--password-->
+
+    <div>
+        <span>
+            <a class="text-link" class="aLink" routerLink="#">Forgot Password?</a>
+        </span>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password" required />
+            <mat-error *ngIf="!loginForm.controls['password'].valid">Password is required </mat-error>
+        </mat-form-field>
+    </div>
+
+        <button type="submit" mat-flat-button color="primary" >Login</button> <br><br>
+
+
+       <p> New user? &nbsp;<button  routerLink="/register" mat-flat-button color="primary" >Register</button></p>
+        
+</form>
+    </mat-card-content>
+  </mat-card>
 
 <app-footer></app-footer>

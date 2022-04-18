@@ -33,7 +33,8 @@ import { PopupComponent } from './home/popup/popup.component';
 import { FormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import{ReactiveFormsModule} from '@angular/forms';
-
+import {MatError, MatFormFieldModule} from '@angular/material/form-field';
+import{MatInput, MatInputModule} from '@angular/material/input';
 
 
 
@@ -73,6 +74,11 @@ import{ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatRadioModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatRadioModule,
+    
   
     
   ],
