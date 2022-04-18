@@ -1,37 +1,84 @@
 <app-header></app-header>
-<br>&nbsp; &nbsp; &nbsp;
+<mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h5 class="card-header">Register</h5>
+      </div>
 
-<div class="container">
-    <form action="SignIn.html">
-       
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="number">Phone Number:</label>
-            <input type="tel" class="form-control" id="number" placeholder="Enter Phone Number" name="number">
-        </div>
-        <br>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-        </div>
-        <br>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-            </label>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+      
+
+<form (ngSubmit)="onregister()" name="registerform" [formGroup]="registerform">
+
+    <mat-radio-group aria-label="Select an option"   formControlName="radio"  required>
+        <mat-label>Gender:</mat-label>&nbsp;
+        <mat-radio-button value="1" name="rad">Mr</mat-radio-button> &nbsp;
+        <mat-radio-button value="2" name="rad">Miss</mat-radio-button>&nbsp;
+        <mat-radio-button value="3" name="rad">Mrs</mat-radio-button>&nbsp;
+        <mat-error *ngIf="!registerform.controls['radio'].valid"></mat-error>
+        
+      </mat-radio-group>
+    
+    
+    
+<!--Firstname-->
+    <div class="eInput">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input formControlName="FirstName"  matInput placeholder="First Name" required  />
+            <mat-error *ngIf="!registerform.controls['FirstName'].valid"> FirstName is required</mat-error>
+        </mat-form-field>
+    </div>
+    <!--Lastname-->
+    <div class="eInput">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="LastName"  matInput placeholder="Last Name" required  />
+        </mat-form-field>
+    </div>
+
+      <!--Email-->
+    <div class="eInput">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email"  matInput placeholder="Enter email address" required  />
+            <mat-error *ngIf="!registerform.controls['email'].valid"> Email is required</mat-error>
+        </mat-form-field>
+    </div>
+
+        <!--password-->
+
+    <div>
+        
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password" required />
+            <mat-error *ngIf="!registerform.controls['password'].valid">Password is required </mat-error>
+        </mat-form-field>
+    </div>
+    <!--Confirmpassword-->
+
+    <div>
+        
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>ConfirmPassword</mat-label>
+            <input formControlName="confirmPassword" matInput type="password" required />
+            <mat-error *ngIf="!registerform.controls['confirmPassword'].valid">Password not matching </mat-error>
+            
+        </mat-form-field>
+    </div>
+
+    <p style="color: rgb(0, 0, 0);"><input type="checkbox" formControlName="TC" required> I agree to the <a routerLink="/pagenotfound"  target="_blank">Terms  and condition</a>
+        <mat-error *ngIf="!registerform.controls['TC'].valid"></mat-error>
+    </p>
+
+    
+    
+        <button type="submit" mat-flat-button color="primary" >Register</button> &nbsp;
+        <button type="reset" mat-flat-button color="danger" >Cancel</button>
+        
+</form>
+
+    </mat-card-content>
+  </mat-card>
 <app-footer></app-footer>
 
