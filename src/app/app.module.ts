@@ -29,6 +29,11 @@ import { TopHeaderComponent } from './home/top-header/top-header.component';
 import { TopBodyComponent } from './home/top-body/top-body.component';
 import { AboutusPageComponent } from './home/aboutus-page/aboutus-page.component';
 import { ContactusPageComponent } from './home/contactus-page/contactus-page.component';
+import { PopupComponent } from './home/popup/popup.component';
+import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import{ReactiveFormsModule} from '@angular/forms';
+
 
 
 
@@ -49,6 +54,7 @@ import { ContactusPageComponent } from './home/contactus-page/contactus-page.com
     TopBodyComponent,
     AboutusPageComponent,
     ContactusPageComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +69,12 @@ import { ContactusPageComponent } from './home/contactus-page/contactus-page.com
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatRadioModule,
+  
+    
   ],
   providers: [ActivateGuard,UserService],
   bootstrap: [AppComponent]
