@@ -11,6 +11,8 @@ import { TopBodyComponent } from './home/top-body/top-body.component';
 import { TopHeaderComponent } from './home/top-header/top-header.component';
 import { AboutusPageComponent } from './home/aboutus-page/aboutus-page.component';
 import { ContactusPageComponent } from './home/contactus-page/contactus-page.component';
+import { UserService } from './user.service';
+import { UserRegistrationComponent } from './userregistration/userregistration.component';
 
 
 const routes: Routes = [{'path': 'login', component: LoginComponent},
@@ -18,11 +20,12 @@ const routes: Routes = [{'path': 'login', component: LoginComponent},
 {'path': '', component: HomeComponent},
 {'path': 'header', component: HeaderComponent},
 {'path': 'footer', component: FooterComponent},
-{'path': 'userhome', component: UserhomeComponent},
+{'path': 'userhome', component: UserhomeComponent, },
 {'path': 'topbody', component: TopBodyComponent},
 {'path': 'topheader', component: TopHeaderComponent},
 {'path': 'aboutus', component: AboutusPageComponent},
 {'path': 'contactus', component: ContactusPageComponent},
+{'path': 'Userregistration', component: UserRegistrationComponent},
 //{'path': '**', component: PageNotFoundComponent}, //404 page ** removed
 //{'path':'adduser', loadChildren: 'app/dashboardfunctions/adduser/adduser.module#AdduserModule'},
 {'path':'admin',loadChildren:()=>import('./adduser/adduser.module').then(module=>module.AdduserModule)},

@@ -1,0 +1,25 @@
+{
+    "HOME": {
+    "TITLE":"changer la langue",
+    "TEXT1":"Domicile",
+    "TEXT2":"Environ",
+    "TEXT3":"Contact",
+    "TEXT4":"Compagnie",
+    "TEXT5":"Localisez-nous",
+    "TEXT6":"Connectez-vous",
+    "TEXT7":"Inscrire",
+    "SELECT":"Sélectionner une langue"
+    },
+
+    "TH": {
+        "TITLE":"Change the language",
+        "TEXT6":"Nouvelle façon d’apprendre",
+        "TEXT2":"Apprenez à coder ou à développer vos compétences en programmation en ligne pour mieux comprendre comment les sites Web et les applications sont conçus et développés.",
+        "TEXT3":"Apprentissage de l’application Web",
+        "TEXT4":"Inscrivez-vous maintenant",
+        "TEXT5":"Locate us",
+        "SELECT":"select Language"
+        
+        
+        }
+    }

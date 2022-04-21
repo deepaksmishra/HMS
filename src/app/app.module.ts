@@ -35,6 +35,16 @@ import {MatRadioModule} from '@angular/material/radio';
 import{ReactiveFormsModule} from '@angular/forms';
 import {MatError, MatFormFieldModule} from '@angular/material/form-field';
 import{MatInput, MatInputModule} from '@angular/material/input';
+import { ToastrModule } from 'ngx-toastr';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { UserRegistrationComponent } from './userregistration/userregistration.component';
+
+
+export function HttpLoaderFactory(http:HttpClient){
+  return new TranslateHttpLoader(http)
+}
 
 
 
@@ -56,6 +66,7 @@ import{MatInput, MatInputModule} from '@angular/material/input';
     AboutusPageComponent,
     ContactusPageComponent,
     PopupComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +89,18 @@ import{MatInput, MatInputModule} from '@angular/material/input';
     MatInputModule,
     MatButtonModule,
     MatRadioModule,
-    
+    HttpClientModule,
+    ToastrModule.forRoot({
+      positionClass:'toast-top-center'
+    }),
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+      }
+    }),
+    HttpClientModule,
   
     
   ],

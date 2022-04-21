@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/for
 import { Router } from '@angular/router';
 
 import{MustMatch} from './helper.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ import{MustMatch} from './helper.component';
 export class RegisterComponent implements OnInit {
   hide: boolean = false;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private toastr:ToastrService, ) { }
 
   ngOnInit(): void {
   }
@@ -36,9 +37,9 @@ export class RegisterComponent implements OnInit {
       }
       
       if (this.registerform.valid) {
-        alert("Registered Succesfully")
+        this.toastr.success('Rigistration Succesfull');
 
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('/login');
         console.log(this.registerform.value.email)
         console.log(this.registerform.value);
       }
