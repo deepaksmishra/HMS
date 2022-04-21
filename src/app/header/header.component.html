@@ -10,14 +10,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav font-weight-bold mx-auto py-0">
-                <a routerLink="" class="nav-item nav-link active">Home</a>
-                <a routerLink="/aboutus" class="nav-item nav-link">About</a>
-                <a routerLink="/contactus" class="nav-item nav-link">Contact</a>
-                <a href="pagenotfound" class="nav-item nav-link">Company</a>
-                <a href="" class="nav-item nav-link">Locate Us</a>
+                <a routerLink="" class="nav-item nav-link active">{{"HOME.TEXT1"| translate}}</a>
+                <a routerLink="/aboutus" class="nav-item nav-link">{{"HOME.TEXT2"| translate}}</a>
+                <a routerLink="/contactus" class="nav-item nav-link">{{"HOME.TEXT3"| translate}}</a>
+                <a href="pagenotfound" class="nav-item nav-link">{{"HOME.TEXT4"| translate}}</a>
+                <a href="" class="nav-item nav-link">{{"HOME.TEXT5"| translate}}</a>
             </div>
-            <a routerLink="/login" class="btn btn-primary px-4">Login</a> &nbsp;&nbsp;&NonBreakingSpace;&nbsp;&nbsp;
-            <a routerLink="/register" class="btn btn-primary px-4">Enroll Now</a>
+            <label>
+                {{"HOME.SELECT"| translate}}
+                <select #lanselect (change)="translate.use(lanselect.value)" name="" id="">
+                  <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{lang}}</option>
+            
+                </select >&nbsp;&nbsp;&NonBreakingSpace;&nbsp;&nbsp;
+              </label>
+            <a routerLink="/login" class="btn btn-primary px-4">{{"HOME.TEXT6"| translate}}</a> &nbsp;&nbsp;&NonBreakingSpace;&nbsp;&nbsp;
+            <a routerLink="/register" class="btn btn-primary px-4">{{"HOME.TEXT7"| translate}}</a>
         </div>
     </nav>
 </div>

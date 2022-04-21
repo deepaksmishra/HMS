@@ -1,0 +1,26 @@
+{
+    "HOME": {
+    "TITLE":"Change the language",
+    "TEXT1":"Home",
+    "TEXT2":"About",
+    "TEXT3":"Contact",
+    "TEXT4":"Company",
+    "TEXT5":"Locate us",
+    "TEXT6":"Login",
+    "TEXT7":"Enroll Now",
+    "SELECT":"select Language"
+    
+    
+    },
+    "TH": {
+        "TITLE":"Change the language",
+        "TEXT6":"New Way of Learning",
+        "TEXT2":"Learn how to code or build your skills in programming online to gain a better understanding of how websites and apps are designed and developed.",
+        "TEXT3":"Learning Web App",
+        "TEXT4":"Register Now",
+        "TEXT5":"Locate us",
+        "SELECT":"select Language"
+        
+        
+        }
+    }

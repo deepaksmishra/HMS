@@ -6,17 +6,17 @@ import { UserService } from './user.service';
   providedIn: 'root'
 })
 export class ActivateGuard implements CanActivate {
-  constructor(private userservice:UserService,private router:Router) { }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this.userservice.isAdminrights()){
-      return true;
-    }
-    else{
-      alert("You are not authorized to access this page");
-      this.router.navigate(['home']);
-      return false;
-    }
+  constructor(private UserService : UserService){ }
+  
+  canActivate() {
+    if(this.UserService.isuserLoggedin()){
+    return true;
+  } else{
+
+    alert("Your not authorised")
+
+    return false;
   }
+  
+}
 }

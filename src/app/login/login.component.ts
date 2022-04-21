@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms'
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   hide: boolean = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,  private router: Router, private toastr:ToastrService, ) {
   }
 
   
@@ -28,19 +29,18 @@ export class LoginComponent implements OnInit {
     }
     
     if (this.loginForm.value.email == 'admin@gmail.com' && this.loginForm.value.password == 'admin@123') {
+      this.toastr.success('Successfully Logged In');
+      
       this.router.navigateByUrl('/userhome');
       console.log(this.loginForm.value.email)
       console.log(this.loginForm.value);
     }
     else {
-      alert("please enter valid email and password")
+      this.toastr.warning('Please check the email and password');
       
     }
 
 
   }
-save()
-{ 
-  sessionStorage.setItem('admin@gmail.com','admin');
-}
+
 }
