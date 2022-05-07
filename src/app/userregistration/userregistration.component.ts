@@ -19,16 +19,16 @@ export class UserRegistrationComponent implements OnInit
 {
   
   loginform=new FormGroup({
-    FullName:new FormControl('',[Validators.required,Validators.minLength(3)]),
-    UserName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    
+    Name:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    Username:new FormControl('',[Validators.required,Validators.minLength(3)]),
     Email:new FormControl('',[Validators.pattern('@'),Validators.required,Validators.email]),
-    Password:new FormControl('',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')]),
-    PhoneNumber:new FormControl('',[Validators.required,Validators.nullValidator])
+    Gender:new FormControl('',[Validators.pattern('@'),Validators.required,Validators.email]),
+    password:new FormControl('',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')]),
   });
 
 
   Employeeform:FormGroup | any;
-  Gender = ['male', 'female'];
   allUsers :Observable<User[]> | any; 
   userForm :FormGroup | any;
   dataSaved = false;
@@ -47,16 +47,16 @@ export class UserRegistrationComponent implements OnInit
     this.dataSaved = false;
     const user = this.userForm.value;
     //Invoking the CreateUser function
-    this.CreateUser(user);
+    this.AddUserRegistration(user);
     this.userForm.reset();
   }
   //create a function CreateUser for registration of a new user
-  CreateUser(user: User) {
+  AddUserRegistration(user: User) {
     if (this.userIdUpdate == null) {
       //subscribe() is a method on the Observable type. The Observable type is a 
       //utility that asynchronously or synchronously streams data 
       //to a variety of components or services that have subscribed to the observable.
-      this.userservice.createUser(user).subscribe(
+      this.userservice.AddUserRegistration(user).subscribe(
         () => {
           this.dataSaved = true;
           //this.message = 'Record saved Successfully';
@@ -67,7 +67,7 @@ export class UserRegistrationComponent implements OnInit
       );
     } else {
       user.id = this.userIdUpdate;
-      this.userservice.updateUser(user).subscribe(() => {
+      this.userservice.UpdateUserRegistration(user).subscribe(() => {
         this.dataSaved = true;
         //this.message = 'Record Updated Successfully';
         this.loadAllUsers();
@@ -80,17 +80,17 @@ export class UserRegistrationComponent implements OnInit
     this.loadAllUsers();
     console.log(this.allUsers)
     this.userForm=new FormGroup({
-      'FullName':new FormControl(null),
-      'UserName':new FormControl(null),
+      'id':new FormControl(null),
+      'Name':new FormControl(null),
+      'Username':new FormControl(null),
       'Email':new FormControl(null),
-      'PhoneNumber':new FormControl(null),
-      'Password':new FormControl(null),
-      'Gender':new FormControl(null)
+      'Gender':new FormControl(null),
+      'password':new FormControl(null),
     })
   }
   loadAllUsers()
   {
-    this.allUsers=this.userservice.getAllUsers();
+    this.allUsers=this.userservice.GetUserRegistrationDetails();
   }
   //create a function loadUserToEdit to update the details of existing user
   loadUserToEdit(userId: number) 
@@ -100,12 +100,12 @@ export class UserRegistrationComponent implements OnInit
       this.message = null;
       this.dataSaved = false;
       this.userIdUpdate = user.id;
-      this.userForm.controls['FullName'].setValue(user.FullName);
-      this.userForm.controls['UserName'].setValue(user.Username);
+      this.userForm.Controls['id'].setValue(user.id);
+      this.userForm.controls['Name'].setValue(user.Name);
+      this.userForm.controls['Username'].setValue(user.Username);
       this.userForm.controls['Email'].setValue(user.Email);
-      this.userForm.controls['PhoneNumber'].setValue(user.PhoneNumber);
-      this.userForm.controls['Password'].setValue(user.password);
       this.userForm.controls['Gender'].setValue(user.Gender);
+      this.userForm.controls['password'].setValue(user.password);
       
       
     });
@@ -114,7 +114,7 @@ export class UserRegistrationComponent implements OnInit
   //create a function deleteUser to delete an existing user
   deleteUser(userId: number) {
     if (confirm("Are you sure you want to delete this ?")) {  
-    this.userservice.deleteUserById(userId).subscribe(() => {
+    this.userservice.DeleteUserRegistration(userId).subscribe(() => {
       this.dataSaved = true;
      // this.message = 'Record Deleted Succefully';
       this.loadAllUsers();
@@ -130,18 +130,18 @@ export class UserRegistrationComponent implements OnInit
     this.dataSaved = false;
   }
   get FullName() {
-    return this.userForm.get('FullName');
+    return this.userForm.get('Name');
      }
      get Email()
      { 
        return this.userForm.get('Email');
    }
    get Password(){ 
-     return this.userForm.get('Password');
+     return this.userForm.get('password');
    }
    get UserName()
    { 
-     return this.userForm.get('UserName');
+     return this.userForm.get('Username');
    }
    get PhoneNumber()
    { 
