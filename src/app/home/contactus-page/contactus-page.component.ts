@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusPageComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    
+    console.log("Contact us Component Loaded"); 
+  }
 
   ngOnInit(): void {
   }

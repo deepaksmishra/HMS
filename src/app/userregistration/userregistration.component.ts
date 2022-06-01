@@ -19,11 +19,11 @@ export class UserRegistrationComponent implements OnInit
 {
   
   loginform=new FormGroup({
-    FullName:new FormControl('',[Validators.required,Validators.minLength(3)]),
-    UserName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    FirstName:new FormControl('',[Validators.required,Validators.minLength(3)]),
+    LastName:new FormControl('',[Validators.required,Validators.minLength(3)]),
     Email:new FormControl('',[Validators.pattern('@'),Validators.required,Validators.email]),
-    Password:new FormControl('',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')]),
-    PhoneNumber:new FormControl('',[Validators.required,Validators.nullValidator])
+    password:new FormControl('',[Validators.required,Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})')]),
+    phoneNumber:new FormControl('',[Validators.required,Validators.nullValidator])
   });
 
 
@@ -34,6 +34,7 @@ export class UserRegistrationComponent implements OnInit
   dataSaved = false;
   userIdUpdate = null;
   message = null;
+  
   //inheriting UserServiceService from user-service.service.ts
  
   constructor(private userservice:UserServiceService ,private fb : FormBuilder)
@@ -53,9 +54,7 @@ export class UserRegistrationComponent implements OnInit
   //create a function CreateUser for registration of a new user
   CreateUser(user: User) {
     if (this.userIdUpdate == null) {
-      //subscribe() is a method on the Observable type. The Observable type is a 
-      //utility that asynchronously or synchronously streams data 
-      //to a variety of components or services that have subscribed to the observable.
+      
       this.userservice.createUser(user).subscribe(
         () => {
           this.dataSaved = true;
@@ -65,7 +64,8 @@ export class UserRegistrationComponent implements OnInit
           this.userForm.reset();
         }
       );
-    } else {
+    } 
+    else {
       user.id = this.userIdUpdate;
       this.userservice.updateUser(user).subscribe(() => {
         this.dataSaved = true;
@@ -80,11 +80,11 @@ export class UserRegistrationComponent implements OnInit
     this.loadAllUsers();
     console.log(this.allUsers)
     this.userForm=new FormGroup({
-      'FullName':new FormControl(null),
-      'UserName':new FormControl(null),
+      'FirstName':new FormControl(null),
+      'LastName':new FormControl(null),
       'Email':new FormControl(null),
-      'PhoneNumber':new FormControl(null),
-      'Password':new FormControl(null),
+      'phoneNumber':new FormControl(null),
+      'password':new FormControl(null),
       'Gender':new FormControl(null)
     })
   }
@@ -100,11 +100,11 @@ export class UserRegistrationComponent implements OnInit
       this.message = null;
       this.dataSaved = false;
       this.userIdUpdate = user.id;
-      this.userForm.controls['FullName'].setValue(user.FullName);
-      this.userForm.controls['UserName'].setValue(user.Username);
+      this.userForm.controls['FirstName'].setValue(user.FirstName);
+      this.userForm.controls['LastName'].setValue(user.LastName);
       this.userForm.controls['Email'].setValue(user.Email);
-      this.userForm.controls['PhoneNumber'].setValue(user.PhoneNumber);
-      this.userForm.controls['Password'].setValue(user.password);
+      this.userForm.controls['phoneNumber'].setValue(user.phonenumber);
+      this.userForm.controls['password'].setValue(user.password);
       this.userForm.controls['Gender'].setValue(user.Gender);
       
       
@@ -129,22 +129,22 @@ export class UserRegistrationComponent implements OnInit
     this.message = null;
     this.dataSaved = false;
   }
-  get FullName() {
-    return this.userForm.get('FullName');
+  get FirstName() {
+    return this.userForm.get('FirstName');
      }
      get Email()
      { 
        return this.userForm.get('Email');
    }
    get Password(){ 
-     return this.userForm.get('Password');
+     return this.userForm.get('password');
    }
-   get UserName()
+   get LastName()
    { 
-     return this.userForm.get('UserName');
+     return this.userForm.get('LastName');
    }
-   get PhoneNumber()
+   get phoneNumber()
    { 
-     return this.userForm.get('PhoneNumber');
+     return this.userForm.get('phonenumber');
    }
 }

@@ -5,7 +5,7 @@
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
         <h3 class="display-3 font-weight-bold text-white">About Us</h3>
         <div class="d-inline-flex text-white">
-            <p class="m-0"><a class="text-white" href="">Home</a></p>
+            <p class="m-0"><a routerLink="/files" class="text-white" href="">Home</a></p>
             <p class="m-0 px-2">/</p>
             <p class="m-0">About Us</p>
         </div>
@@ -13,9 +13,17 @@
 </div>
 <!-- Header End -->
 
+<!-- <pdf-viewer  url="pdfUrl" [original-size]="false" style="height: 1000px; width: 1500px;"></pdf-viewer> -->
+
 <div class="container">
     <h1> Learning About US</h1>
     <p> something  </p>
+    <a routerLink="/pdfn" class="btn btn-primary px-4">Pdfview</a>&nbsp;&nbsp;
+    <!-- <a routerLink="/pdf" class="btn btn-success px-4">Excel report</a>&nbsp;&nbsp; -->
+    <button class="btn btn-success px-4" (click)="Downloadfile()" >Download Excel report</button>&nbsp;&nbsp;
+
+    <button class="btn btn-success px-4" (click)="Downloadpdf()" >Download pdf report</button>&nbsp;&nbsp;
+    <button class="btn btn-success px-4" (click)="viewpdf()" >View pdf report</button>
     </div>
 
 <app-footer></app-footer>

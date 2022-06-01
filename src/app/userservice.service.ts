@@ -11,7 +11,7 @@ import { User } from './user';
 })
 export class UserServiceService {
 //asp.net web api (the api should be running while consuming from Angular)
-  url =  'https://localhost:44363/Api/UserRegistrations';  
+  url =  'https://localhost:7070/Api/Users';  
   //Will invoke UserRegistrationsController->GetUserRegistrations()
   //GET->Read records
 	  constructor(private http: HttpClient) { }  
@@ -25,7 +25,9 @@ export class UserServiceService {
 	  createUser(user: User): Observable<User> {  
 	    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
 	    return this.http.post<User>(this.url ,  
-	    user, httpOptions);  
+	    user,httpOptions
+		); 
+		//{headers: new HttpHeaders().append('Access-Control-Allow-Origin', '*'),}
 	  } 
 	  //Will invoke UserRegistrationsController->PutUserRegistration 
 	  updateUser(user: User): Observable<User> {  

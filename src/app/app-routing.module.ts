@@ -13,9 +13,13 @@ import { AboutusPageComponent } from './home/aboutus-page/aboutus-page.component
 import { ContactusPageComponent } from './home/contactus-page/contactus-page.component';
 import { UserService } from './user.service';
 import { UserRegistrationComponent } from './userregistration/userregistration.component';
+import { PdfviewComponent } from './pdfview/pdfview.component';
+import { PdfviewNewComponent } from './pdfview-new/pdfview-new.component';
+
 
 
 const routes: Routes = [{'path': 'login', component: LoginComponent},
+{'path':'files',loadChildren:()=>import('./files/files.module').then(module=>module.FilesModule)},
 {'path': 'register', component: RegisterComponent},
 {'path': '', component: HomeComponent},
 {'path': 'header', component: HeaderComponent},
@@ -29,6 +33,12 @@ const routes: Routes = [{'path': 'login', component: LoginComponent},
 //{'path': '**', component: PageNotFoundComponent}, //404 page ** removed
 //{'path':'adduser', loadChildren: 'app/dashboardfunctions/adduser/adduser.module#AdduserModule'},
 {'path':'admin',loadChildren:()=>import('./adduser/adduser.module').then(module=>module.AdduserModule)},
+
+{'path': 'pdf', component:PdfviewComponent},
+{'path': 'pdfn', component:PdfviewNewComponent},
+
+
+// {'path':'trail',loadChildren:()=>import('./trail/trail.module').then(module=>module.TrailModule)},
 
 ];
 @NgModule({

@@ -40,13 +40,15 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UserRegistrationComponent } from './userregistration/userregistration.component';
+import { PdfviewComponent } from './pdfview/pdfview.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DownloadFileService } from './download-file.service';
+import { PdfviewNewComponent } from './pdfview-new/pdfview-new.component';
 
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http)
 }
-
-
 
 
 @NgModule({
@@ -66,7 +68,9 @@ export function HttpLoaderFactory(http:HttpClient){
     AboutusPageComponent,
     ContactusPageComponent,
     PopupComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    PdfviewComponent,
+    PdfviewNewComponent
   ],
   imports: [
     BrowserModule,
@@ -101,10 +105,11 @@ export function HttpLoaderFactory(http:HttpClient){
       }
     }),
     HttpClientModule,
+    PdfViewerModule
   
     
   ],
-  providers: [ActivateGuard,UserService],
+  providers: [ActivateGuard,UserService,DownloadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

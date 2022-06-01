@@ -29,5 +29,8 @@ export class DashboardComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+
+    console.log("dashboard loaded")
+  }
 }
