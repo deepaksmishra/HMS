@@ -39,14 +39,16 @@ export class LoginComponent implements OnInit {
     }
     
     if (this.loginForm.valid) {
-      this.toastr.success('Successfully Logged In');
+      // this.toastr.success('Successfully Logged In');
 
       const loginuser = this.loginForm.value;
        this.CreateloginUser(loginuser);
-      console.log(this.loginForm.value.Email)
-      console.log(this.loginForm.value);
+      //console.log(this.loginForm.value.Email)
+      //console.log(this.loginForm.value);
+
+      {
       //this.router.navigateByUrl('/userhome');
-     
+      }
     }
     else {
       this.toastr.warning('Please check the email and password');
@@ -63,7 +65,7 @@ export class LoginComponent implements OnInit {
           this.dataSaved = true;
          
           this.router.navigate(['/userhome']);// ON SUCCESS
-          //this.message = 'Record saved Successfully';
+         
           this.userIdUpdate = null;
           this.loginForm.reset();
         },
